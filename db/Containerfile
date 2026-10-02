@@ -1,0 +1,6 @@
+# ---------- Database image with schema + seed data baked in ----------
+FROM docker.io/library/postgres:16-alpine
+LABEL app="shopease-order-db" version="1.0"
+# Any .sql file here runs automatically on first start
+COPY init.sql /docker-entrypoint-initdb.d/01-init.sql
+EXPOSE 5432
