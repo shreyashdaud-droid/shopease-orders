@@ -53,7 +53,7 @@ def create_order():
             "RETURNING id, customer, item, quantity, status",
             (data["customer"], data["item"], int(data["quantity"])),
         )
-        return jsonify(cur.fetchone()), 202
+        return jsonify(cur.fetchone()), 201
 
 @app.patch("/api/orders/<int:order_id>")
 def update_status(order_id):
