@@ -1,0 +1,6 @@
+# ---------- Reverse proxy / gateway image ----------
+FROM docker.io/library/nginx:1.27-alpine
+LABEL app="shopease-gateway" version="1.0"
+# nginx image renders /etc/nginx/templates/*.template with envsubst at startup
+COPY default.conf.template /etc/nginx/templates/default.conf.template
+EXPOSE 80
